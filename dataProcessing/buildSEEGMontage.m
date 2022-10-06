@@ -24,7 +24,7 @@ for i_grid = 1:length(lmntg)
     Rend = ismember(grid(:,2), string(onEnd+1));
 
     toRemove = Lend & Rend;
-    %mntg{lmntg(i_grid)} = grid(~toRemove,:);
+    mntg{lmntg(i_grid)} = grid(~toRemove,:);
 
 end
 
