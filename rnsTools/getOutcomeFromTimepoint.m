@@ -37,6 +37,11 @@ outcome_date= NaT(nSets,length(targ_yr));
 all_outcomes = cell(nSets,1);
 all_dates = cell(nSets, 1); 
 
+% Format in case input is one large cell array:
+if size(outcomeCellPair,2) > 1
+    outcomeCellPair = num2cell(outcomeCellPair,2);
+end
+
 for i=1:nSets
     
     % Skip if data is missing
