@@ -2,11 +2,14 @@ function h = brainPlot4Angles(coords, labels, options)
 % h = brainPlot4Angles(coords, labels, options)
 %
 % options:
-%   color = 'blue'
-%   size = 100 
-%   MNI = false
-%   surfaceAlpha = 0.2
-%
+%     coords
+%     labels = []
+%     options.views = [1:4]
+%     options.color = 'blue'; 
+%     options.size = 100
+%     options.MNI= false
+%     options.surfaceAlpha = 0.2
+%     options.orientationLabels = false
 
 arguments
     coords
@@ -16,6 +19,7 @@ arguments
     options.size = 100
     options.MNI= false
     options.surfaceAlpha = 0.2
+    options.orientationLabels = true
 end
 
 v_idx = [[90,0]; [270, 0]; [180,0]; [180, 90]];
@@ -42,6 +46,24 @@ for i = options.views
       
     if options.MNI
         plotMNISurface(options.surfaceAlpha, '', caxis);
+
+        if options.orientationLabels
+            if i ~=4
+                text(0,0,80, 'S', 'FontSize',13)
+                text(0,0,-60, 'I', 'FontSize',13)
+            end
+    
+            if i ~=3
+                text(0,80, 0, 'A', 'FontSize',13)
+                text(0,-120, 0, 'P', 'FontSize',13)
+            end
+    
+            if i ~= [1,2]
+                text(90,0,0, 'L', 'FontSize',13)
+                text(-90,0,0,'R', 'FontSize',13)
+            end
+        end
+
     else
         set(gca, 'minorGridAlpha', .6)
         grid minor
