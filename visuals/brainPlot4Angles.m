@@ -59,8 +59,8 @@ for i = options.views
             end
     
             if i ~= [1,2]
-                text(90,0,0, 'L', 'FontSize',13)
-                text(-90,0,0,'R', 'FontSize',13)
+                text(90,0,0, 'R', 'FontSize',13)
+                text(-90,0,0,'L', 'FontSize',13)
             end
         end
 
